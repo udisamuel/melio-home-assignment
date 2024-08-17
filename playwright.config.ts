@@ -7,10 +7,10 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
-  timeout: 120000,
+  timeout: 60000,
   use: {
     trace: 'on-first-retry',
-    headless: true,
+    headless: false,
   },
   globalSetup: './global-setup.ts',
   globalTeardown: './global-teardown.ts',
