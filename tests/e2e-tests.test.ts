@@ -16,6 +16,7 @@ test.describe('Dashboard Page Tests', () => {
       userAgent: 'qa-automation-homework',
     });
     page = await context.newPage();
+    await loginFlow(page, 'automation.home@melio.com', 'vH4iLixIFp');
   });
 
   test.afterEach(async () => {
@@ -26,9 +27,7 @@ test.describe('Dashboard Page Tests', () => {
     const guid = uuidv4();
     const businessName = `Vendor ${guid}`;
     
-    await loginFlow(page, 'automation.home@melio.com', 'vH4iLixIFp');
     await addVendorFlow(page, businessName, 'John Doe', 'john.doe@example.com', '123-456-7890');
-
     const vendorDetailsPage = new VendorDetailsPage(page);
     const dashboardPage = new DashboardPage(page)
     await dashboardPage.searchForText(businessName);
@@ -42,12 +41,9 @@ test.describe('Dashboard Page Tests', () => {
 
   test('should fail if a vendor is created with a duplicate name', async () => {
     const existingBusinessName = `Vendor ${uuidv4()}`;
-    const invalidEmail = "invalid-email";
     const contactName = "John Doe";
     const validPhoneNumber = "123-456-7890";
     const dashboardPage = new DashboardPage(page);
-
-    await loginFlow(page, 'automation.home@melio.com', 'vH4iLixIFp');
 
     for (let i = 0; i < 2; i++) {
       await addVendorFlow(page, existingBusinessName, contactName, 'jane.doe@example.com', validPhoneNumber);
@@ -66,8 +62,6 @@ test.describe('Dashboard Page Tests', () => {
     const contactName = "John Doe";
     const validPhoneNumber = "123-456-7890";
     const newVendorPage = new NewVendorPage(page);
-
-    await loginFlow(page, 'automation.home@melio.com', 'vH4iLixIFp');
 
     await addInvalidVendorFlow(page, businessName, contactName, invalidEmail, validPhoneNumber);
 
