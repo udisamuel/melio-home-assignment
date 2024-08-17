@@ -1,6 +1,5 @@
 import { Page } from '@playwright/test';
 import { BasePage } from './base.page';
-import { expect } from '@playwright/test';
 
 export class DashboardPage extends BasePage {
   private readonly modalCloseButtonSelector: string = '[data-testid="modal-close-button"]';
@@ -8,7 +7,6 @@ export class DashboardPage extends BasePage {
   private readonly specificTextSelector: string = 'h1:has-text("Pay")';
   private readonly addVendorButtonSelector: string = '[data-testid="vendors-tab-add-vendor-button"]';
   private readonly searchInputSelector: string = '[data-testid="search-input"]';
-  private readonly tableSelector: string = '[data-testid="table-container"]'
 
   constructor(page: Page) {
     super(page);

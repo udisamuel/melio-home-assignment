@@ -1,5 +1,7 @@
 import { BasePage } from './base.page';
 import { LocatorType } from './locator-type.enum';
+import { sleep } from '../utils/utils';
+
 
 export class LoginPage extends BasePage {
 
@@ -22,6 +24,7 @@ export class LoginPage extends BasePage {
   async login(username: string, password: string) {
     await this.usernameInput.fill(username);
     await this.passwordInput.fill(password);
+    await sleep(3000);
     await this.submitButton.click();
   }
 

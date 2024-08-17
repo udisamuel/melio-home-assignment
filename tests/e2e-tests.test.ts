@@ -45,10 +45,7 @@ test.describe('Dashboard Page Tests', () => {
     const invalidEmail = "invalid-email";
     const contactName = "John Doe";
     const validPhoneNumber = "123-456-7890";
-
     const dashboardPage = new DashboardPage(page);
-    const newVendorPage = new NewVendorPage(page);
-
 
     await loginFlow(page, 'automation.home@melio.com', 'vH4iLixIFp');
 
@@ -68,10 +65,7 @@ test.describe('Dashboard Page Tests', () => {
     const invalidEmail = "invalid-email";
     const contactName = "John Doe";
     const validPhoneNumber = "123-456-7890";
-
-    const dashboardPage = new DashboardPage(page);
     const newVendorPage = new NewVendorPage(page);
-
 
     await loginFlow(page, 'automation.home@melio.com', 'vH4iLixIFp');
 
