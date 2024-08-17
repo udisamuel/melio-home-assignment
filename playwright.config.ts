@@ -10,7 +10,7 @@ export default defineConfig({
   timeout: 60000,
   use: {
     trace: 'on-first-retry',
-    headless: false,
+    headless: true,
   },
   globalSetup: './global-setup.ts',
   globalTeardown: './global-teardown.ts',
