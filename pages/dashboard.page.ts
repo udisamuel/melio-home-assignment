@@ -20,9 +20,9 @@ export class DashboardPage extends BasePage {
       const specificTextLocator = this.page.locator(this.specificTextSelector);
 
       if (await dialogTextLocator.count() > 0) {
-        await dialogTextLocator.waitFor({ state: 'visible', timeout: 30000 });
+        await dialogTextLocator.waitFor({ state: 'visible' });
       } else {
-        await specificTextLocator.waitFor({ state: 'visible', timeout: 30000 });
+        await specificTextLocator.waitFor({ state: 'visible' });
       }
     } catch (error) {
       throw new Error(`Validation failed: ${error.message}`);
@@ -49,7 +49,7 @@ export class DashboardPage extends BasePage {
     try {
       const addVendorButtonLocator = this.page.locator(this.addVendorButtonSelector);
       
-      await addVendorButtonLocator.waitFor({ state: 'visible', timeout: 40000 });
+      await addVendorButtonLocator.waitFor({ state: 'visible' });
       await addVendorButtonLocator.click();
     } catch (error) {
       throw new Error(`Failed to click the 'Add Vendor' button: ${error.message}`);
